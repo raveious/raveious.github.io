@@ -4,7 +4,8 @@ rvm:
 
 install: gem install jekyll html-proofer
 
-script: bundle exec jekyll build
+before_script: bundle exec jekyll build
+
 script: htmlproofer ./_site
 
 env:
