@@ -2,7 +2,9 @@ language: ruby
 rvm:
 - 2.4
 
-install: gem install jekyll html-proofer
+install:
+  - gem install jekyll html-proofer
+  - bundle install
 
 before_script: bundle exec jekyll build
 
