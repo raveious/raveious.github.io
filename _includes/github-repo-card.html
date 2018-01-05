@@ -3,19 +3,33 @@
   <div class="card-body">
     <h4 class="card-title"><i class="fa fa-github" aria-hidden="true"></i> <a href="{{ include.repo.html_url }}" class="card-link">{{ include.repo.name }}</a></h4>
     <h6 class="card-subtitle mb-2 text-muted">{{ include.repo.description }}</h6>
-    <a href="{{ include.repo.html_url }}">
-      <img src="https://img.shields.io/github/watchers/{{ include.repo.full_name }}.svg?style=social&amp;label=Watch" alt="GitHub watchers">
-    </a>
-    <a href="{{ include.repo.html_url }}">
-      <img src="https://img.shields.io/github/stars/{{ include.repo.full_name }}.svg?style=social&amp;label=Stars" alt="GitHub stars">
-    </a>
-    <a href="{{ include.repo.html_url }}">
-      <img src="https://img.shields.io/github/forks/{{ include.repo.full_name }}.svg?style=social&amp;label=Fork" alt="GitHub forks">
-    </a>
-    <p class="card-text">{{ include.repo.description }}</p>
+    <hr>
+    <div class="row text-center mx-0">
+      <div class="col-sm-4 order-sm-0">
+        {{ include.repo.watchers_count }}
+      </div>
+      <div class="col-sm-4 order-sm-3">
+        <i class="fa fa-eye" aria-hidden="true"></i> Watchers
+      </div>
+      <div class="col-sm-4 order-sm-1">
+        {{ include.repo.stargazers_count}}
+      </div>
+      <div class="col-sm-4 order-sm-4">
+        <i class="fa fa-star" aria-hidden="true"></i> Stars
+      </div>
+      <div class="col-sm-4 order-sm-2">
+        {{ include.repo.forks_count }}
+      </div>
+      <div class="col-sm-4 order-sm-5">
+        <i class="fa fa-code-fork" aria-hidden="true"></i> Forks
+      </div>
+    </div>
+    <p class="card-text"><!--{{ include.repo.description }}--></p>
     {% if include.repo.homepage and include.repo.homepage != "" %}
+    <hr>
     <a href="{{ include.repo.homepage }}" class="card-link">Project Homepage</a>
     {% elsif include.repo.has_pages %}
+    <hr>
     <a href="https://{{ include.repo.owner.login }}.github.io/{{ include.repo.name }}" class="card-link">Project Homepage</a>
     {% endif %}
   </div>
