@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/site
     ports:
-      - '80:4000'
+      - '4000:4000'
     env_file:
       - ./.env
     environment:
