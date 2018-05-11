@@ -1,0 +1,77 @@
+---
+title: Shakers
+layout: default
+---
+{%- if page.paginator -%}
+{%- assign paginator = page.paginator -%}
+{%- endif -%}
+<div class="row">
+  <div class="col-sm-12 col-lg-9 blog-main">
+    {%- for post in paginator.posts -%}
+    <div class="card mb-4 blog-post-preview">
+      {%- if post.cover-images -%}
+      <img class="card-img-top img-fluid" src="{{ post.cover-images[0] }}" alt="Spotlight image for {{ post.title }}" alt="featured image from post on {{ post.date | date_to_long_string }}">
+      {%- endif -%}
+      <div class="card-body">
+        <h2 class="card-title">{{ post.title }}</h2>
+        {%- if page.excerpt == page.content -%}
+        <p class="card-text">{{ post.content | remove_first: post.excerpt | truncatewords: 40 }}</p>
+        {%- else -%}
+        <p class="card-text">{{ post.excerpt | truncatewords: 40 }}</p>
+        {%- endif -%}
+        <a href="{{ post.url }}" class="btn btn-primary">Read More <i class="fas fa-angle-double-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="card-footer text-muted">
+        <i class="fa fa-calendar" aria-hidden="true"></i> Posted on {{ post.date | date_to_string }}{%- if post.author -%} by {{ post.author }}{%- endif -%}
+      </div>
+    </div>
+    {%- endfor -%}
+
+    {%- if paginator.total_pages > 1 -%}
+    <nav aria-label="paginator">
+      <ul class="pagination blog-pagination justify-content-center">
+        {%- if paginator.previous_page -%}
+        <li class="page-item">
+          <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-angle-double-left" aria-hidden="true"></i>  Previous</a>
+        </li>
+        {%- else -%}
+        <li class="page-item disabled">
+          <a class="page-link"><i class="fas fa-angle-double-left" aria-hidden="true"></i>  Previous</a>
+        </li>
+        {%- endif -%}
+
+        {%- for page in (1..paginator.total_pages) -%}
+          {%- if page == paginator.page -%}
+            <li class="page-item active"><a class="page-link">{{ page }}</a></li>
+          {%- elsif page == 1 -%}
+            <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+          {%- else -%}
+            <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if paginator.next_page -%}
+        <li class="page-item">
+          <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next  <i class="fas fa-angle-double-right" aria-hidden="true"></i></a>
+        </li>
+        {%- else -%}
+        <li class="page-item disabled">
+          <a class="page-link">Next  <i class="fas fa-angle-double-right" aria-hidden="true"></i></a>
+        </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+    {%- endif -%}
+  </div><!-- /.blog-main -->
+
+  <aside class="col-sm-3 ml-sm-auto blog-sidebar d-print-none">
+    <div class="card sidebar-module d-none d-lg-block">
+      <h5 class="card-header">Categories</h5>
+      <ul class="list-group list-group-flush">
+        {%- for c in site.categories -%}
+        <li class="list-group-item"><a href="{{ "/categories/" | append: c[0] | append: "/blog/" | relative_url }}">{{ c[0] }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </aside><!-- /.blog-sidebar -->
+</div>
