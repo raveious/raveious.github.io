@@ -36,6 +36,9 @@ collections:
   shakers:
     output: true
     permalink: /shakers/:title
+  tags:
+    output: true
+    permalink: /blog/tags/:title
 
 defaults:
   - scope:
@@ -46,6 +49,10 @@ defaults:
       type: "shakers"
     values:
       layout: "project"
+  - scope:
+      type: "tags"
+    values:
+      layout: "tag"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

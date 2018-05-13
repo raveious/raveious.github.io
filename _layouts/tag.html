@@ -6,6 +6,13 @@
     <div class="container">
       <main role="main" class="container">
         {{ content }}
+        {%- for post in site.posts -%}
+          {%- if post.tags contains page.title -%}
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+          {%- endif -%}
+        {%- endfor -%}
       </main>
     </div>
     {%- include footer.html -%}

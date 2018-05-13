@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  {% include head.html %}
+  {%- include head.html -%}
   <body>
-    {% include header.html %}
+    {%- include header.html -%}
     <div class="container">
       <main role="main" class="container">
-        <div class="row">
-          <div class="col-sm-12 col-lg-9">
-            {{ content }}
-          </div>
-
-          <aside class="col-sm-3 ml-sm-auto blog-sidebar d-print-none">
-            {% assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse %}
-            {% for repo in public_repositories %}
-            {% include github-repo-card.html repo=repo %}
-            {% endfor %}
-          </aside>
-        </div>
+        {{ content }}
       </main>
     </div>
-    {% include footer.html %}
-    {% include scripts.html %}
+    {%- include footer.html -%}
+    {%- include scripts.html -%}
   </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  {%- include head.html -%}
+  <body>
+    {%- include header.html -%}
+    <div class="container">
+      <main role="main" class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-9">
+            <div class="project-content">
+              {{ content }}
+            </div>
+            <div class="project-posts">
+              {%- for post in site.categories[page.title] -%}
+              {%- include post-preview.html post=post -%}
+              {%- endfor -%}
+            </div>
+          </div>
+          <aside class="col-sm-3 ml-sm-auto d-print-none project-repos">
+            {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
+            {%- for repo in public_repositories -%}
+            {%- if page.repositories contains repo.full_name or page.repositories contains repo.name -%}
+            {%- include github-repo-card.html repo=repo -%}
+            {%- endif -%}
+            {%- endfor -%}
+          </aside>
+        </div>
+      </main>
+    </div>
+    {%- include footer.html -%}
+    {%- include scripts.html -%}
+  </body>
+</html>
