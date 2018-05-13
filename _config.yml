@@ -30,13 +30,22 @@ plugins:
   - jemoji
 
 paginate: 5
-paginate_path: "/shakers/page:num"
+paginate_path: "/blog/page:num"
+
+collections:
+  shakers:
+    output: true
+    permalink: /shakers/:title
 
 defaults:
   - scope:
       type: "posts"
     values:
-      permalink: /shakers/:year/:month/:day/:title
+      permalink: /blog/:year/:month/:day/:title
+  - scope:
+      type: "shakers"
+    values:
+      layout: "project"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

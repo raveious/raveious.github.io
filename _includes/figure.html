@@ -1,0 +1,8 @@
+<figure class="figure d-none d-md-block float-{{ include.position | default: "left"}}">
+  {% if include.image %}
+  <img src="{{ include.image }}" class="figure-img img-fluid rounded" alt="Figure image">
+  {% elsif include.html %}
+  {{ include.html }}
+  {% endif %}
+  <figcaption class="figure-caption text-center">{{ include.caption }}</figcaption>
+</figure>
