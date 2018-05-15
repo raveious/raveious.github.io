@@ -5,26 +5,30 @@
     {%- include header.html -%}
     <div class="container">
       <main role="main" class="container">
-        <div class="row">
-          <div class="col-sm-12 col-lg-9">
-            <div class="project-content">
-              {{ content }}
-            </div>
-            <div class="project-posts">
-              {%- for post in site.categories[page.title] -%}
-              {%- include post-preview.html post=post -%}
-              {%- endfor -%}
-            </div>
-          </div>
-          <aside class="col-sm-3 ml-sm-auto d-print-none project-repos">
-            {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
+        <div class="project-content">
+          {{ content }}
+        </div>
+        {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
+        {%- if public_repositories -%}
+        <div class="project-repos">
+          <h1>Project Repositories</h1>
+          <div class="card-columns">
             {%- for repo in public_repositories -%}
             {%- if page.repositories contains repo.full_name or page.repositories contains repo.name -%}
             {%- include github-repo-card.html repo=repo -%}
             {%- endif -%}
             {%- endfor -%}
-          </aside>
+          </div>
         </div>
+        {%- endif -%}
+        {%- if site.categories[page.title] -%}
+        <div class="project-posts">
+          <h1> Related Posts</h1>
+          {%- for post in site.categories[page.title] -%}
+          {%- include post-preview.html post=post -%}
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
       </main>
     </div>
     {%- include footer.html -%}

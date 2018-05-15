@@ -1,5 +1,5 @@
 {% if include.repo %}
-<div class="card mb-2">
+<div class="card">
   <div class="card-body">
     <h4 class="card-title"><i class="fab fa-github" aria-hidden="true"></i> <a href="{{ include.repo.html_url }}" class="card-link">{{ include.repo.name }}</a>{% if include.repo.fork %} <i class="fa fa-code-fork" aria-hidden="true"></i>{% endif %}</h4>
     <h6 class="card-subtitle mb-2 text-muted">{{ include.repo.description }}</h6>
