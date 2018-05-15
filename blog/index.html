@@ -49,6 +49,7 @@ layout: default
   </div><!-- /.blog-main -->
 
   <aside class="col-sm-3 ml-sm-auto blog-sidebar d-print-none">
+    {%- if site.tags -%}
     <div class="card sidebar-module d-none d-lg-block">
       <h5 class="card-header"><i class="fas fa-tags"></i> Tags</h5>
       <div class="card-body">
@@ -72,5 +73,6 @@ layout: default
         </div>
       </div>
     </div>
+    {%- endif -%}
   </aside><!-- /.blog-sidebar -->
 </div>
