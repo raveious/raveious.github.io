@@ -8,13 +8,20 @@
         <div class="project-content">
           {{ content }}
         </div>
-        {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
-        {%- if public_repositories -%}
+        {%- assign visible-repos = page.repositories -%}
+        {%- for p in site.categories[page.title] -%}
+        {%- if p.repositories -%}
+        {%- assign visible-repos = visible-repos | concat: p.repositories -%}
+        {%- endif -%}
+        {%- endfor -%}
+        {%- assign visible-repos = visible-repos | uniq -%}
+        {%- if visible-repos -%}
         <div class="project-repos">
           <h1>Project Repositories</h1>
           <div class="card-columns">
+            {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
             {%- for repo in public_repositories -%}
-            {%- if page.repositories contains repo.full_name or page.repositories contains repo.name -%}
+            {%- if visible-repos contains repo.full_name or visible-repos contains repo.name -%}
             {%- include github-repo-card.html repo=repo -%}
             {%- endif -%}
             {%- endfor -%}
