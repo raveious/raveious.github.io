@@ -7,6 +7,19 @@
       <main role="main" class="container">
         {{ content }}
       </main>
+      {%- if page.repositories -%}
+      <div class="project-repos">
+        <h1>Project Repositories</h1>
+        <div class="card-columns">
+          {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
+          {%- for repo in public_repositories -%}
+          {%- if page.repositories contains repo.full_name or page.repositories contains repo.name -%}
+          {%- include github-repo-card.html repo=repo -%}
+          {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endif -%}
     </div>
     {%- include footer.html -%}
     {%- include scripts.html -%}
