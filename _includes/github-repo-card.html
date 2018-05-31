@@ -6,22 +6,22 @@
     <hr>
     <div class="row text-center mx-0">
       <div class="col-sm-4 order-sm-0">
-        {{ include.repo.watchers_count }}
+        <span>{{ include.repo.watchers_count }}</span>
       </div>
       <div class="col-sm-4 order-sm-3">
-        <i class="fas fa-eye" aria-hidden="true"></i> Watchers
+        <span><i class="fas fa-eye" aria-hidden="true"></i> Watchers</span>
       </div>
       <div class="col-sm-4 order-sm-1">
-        {{ include.repo.stargazers_count}}
+        <span>{{ include.repo.stargazers_count}}</span>
       </div>
       <div class="col-sm-4 order-sm-4">
-        <i class="fas fa-star" aria-hidden="true"></i> Stars
+        <span><i class="fas fa-star" aria-hidden="true"></i> Stars</span>
       </div>
       <div class="col-sm-4 order-sm-2">
-        {{ include.repo.forks_count }}
+        <span>{{ include.repo.forks_count }}</span>
       </div>
       <div class="col-sm-4 order-sm-5">
-        <i class="fas fa-code-branch" aria-hidden="true"></i> Forks
+        <span><i class="fas fa-code-branch" aria-hidden="true"></i> Forks</span>
       </div>
     </div>
     <p class="card-text"><!--{{ include.repo.description }}--></p>
