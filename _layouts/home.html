@@ -6,6 +6,23 @@
     <div class="container">
       <main role="main" class="container">
         {{ content }}
+        <div class="row blog-post-front-page">
+          {%- for post in site.posts -%}
+          {%- if forloop.index == 1 -%}
+          <div class="col-md-12 mb-3 px-2">
+          {%- elsif forloop.index == 2 or forloop.index == 3 -%}
+          <div class="col-md-6 mb-3 px-2">
+          {%- elsif forloop.index > 3 and forloop.index <= 6 and forloop.length >= 6 -%}
+          <div class="col-md-6 col-lg-4 mb-3 px-2">
+          {%- elsif forloop.index > 6 and forloop.index <= 9 and forloop.length >= 9 -%}
+          <div class="col-md-6 col-lg-4 mb-3 px-2">
+          {%- else -%}
+          {%- break -%}
+          {%- endif -%}
+            {%- include post-preview.html post=post -%}
+          </div>
+          {%- endfor -%}
+        </div>
       </main>
     </div>
     {%- include footer.html -%}
