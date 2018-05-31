@@ -10,16 +10,19 @@
           {%- for post in site.posts -%}
           {%- if forloop.index == 1 -%}
           <div class="col-md-12 mb-3 px-2">
-          {%- elsif forloop.index == 2 or forloop.index == 3 -%}
+            {%- include post-preview.html post=post -%}
+          {%- elsif forloop.index > 1 and forloop.index <= 3 and forloop.length >= 3 -%}
           <div class="col-md-6 mb-3 px-2">
+            {%- include post-preview.html post=post -%}
           {%- elsif forloop.index > 3 and forloop.index <= 6 and forloop.length >= 6 -%}
           <div class="col-md-6 col-lg-4 mb-3 px-2">
+            {%- include post-card.html post=post -%}
           {%- elsif forloop.index > 6 and forloop.index <= 9 and forloop.length >= 9 -%}
           <div class="col-md-6 col-lg-4 mb-3 px-2">
+            {%- include post-card.html post=post -%}
           {%- else -%}
           {%- break -%}
           {%- endif -%}
-            {%- include post-preview.html post=post -%}
           </div>
           {%- endfor -%}
         </div>
