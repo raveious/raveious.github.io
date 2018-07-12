@@ -27,7 +27,7 @@
     {% else %}
     <p class="card-text">{{ include.post.excerpt | truncatewords: 40 }}</p>
     {% endif %}
-    <a href="{{ include.post.url }}" class="btn btn-primary">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    <a href="{{ include.post.url }}" class="btn btn-primary float-right">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   </div>
   <div class="card-footer text-muted">
     <i class="far fa-calendar-alt"></i> Posted on {{ include.post.date | date_to_string }}{% if include.post.author %} by {{ include.post.author }}{% endif %}

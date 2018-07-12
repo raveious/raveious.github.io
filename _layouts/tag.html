@@ -3,15 +3,25 @@
   {%- include head.html -%}
   <body>
     {%- include header.html -%}
-    <div class="container my-2">
-      <main role="main" class="container">
-        {{ content }}
-        {%- for post in site.posts -%}
-          {%- if post.tags contains page.title -%}
-          {%- include post-preview.html post=post -%}
-          {%- endif -%}
-        {%- endfor -%}
-      </main>
+
+    <div class="container-fluid my-2">
+      <div class="row">
+        <div class="col-lg-2 container">
+          {%- include left-nav.html -%}
+        </div>
+        <div class="col-lg-8">
+          <main role="main" class="container">
+          {{ content }}
+          {%- for post in site.posts -%}
+            {%- if post.tags contains page.title -%}
+            {%- include post-preview.html post=post -%}
+            {%- endif -%}
+          {%- endfor -%}
+          </main>
+        </div>
+        <div class="col-lg-2 container">
+        </div>
+      </div>
     </div>
     {%- include footer.html -%}
     {%- include scripts.html -%}

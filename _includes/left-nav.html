@@ -1,0 +1,11 @@
+<ul>
+{%- for repo in site.github.public_repositories -%}
+  {%- unless repo.name == site.github.repository_name or repo.archived or repo.fork -%}
+    {%- if repo.homepage and repo.homepage != "" -%}
+    <li><a href="{{ repo.homepage }}">{{ repo.name }}</a></li>
+    {%- elsif repo.has_pages -%}
+    <li><a href="{{ repo.name | prepend:site.baseurl }}">{{ repo.name }}</a></li>
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+</ul>

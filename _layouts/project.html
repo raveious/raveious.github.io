@@ -3,45 +3,55 @@
   {%- include head.html -%}
   <body>
     {%- include header.html -%}
-    <div class="container my-2">
-      <main role="main" class="container">
-        <div class="project-content">
-          {{ content }}
+    {%- if page.fork-link -%}
+    <a href="https://github.com/{{ page.fork-link }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    {%- endif -%}
+    <div class="container-fluid my-2">
+      <div class="row">
+        <div class="col-lg-2 container">
+          {%- include left-nav.html -%}
         </div>
-        {%- assign visible-repos = page.repositories -%}
-        {%- for p in site.categories[page.title] -%}
-        {%- if p.repositories -%}
-        {%- assign visible-repos = visible-repos | concat: p.repositories -%}
-        {%- endif -%}
-        {%- endfor -%}
-        {%- assign visible-repos = visible-repos | uniq -%}
-        {%- if visible-repos -%}
-        <div class="project-repos">
-          <h1>Project Repositories</h1>
-          <div class="card-columns">
-            {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
-            {%- for repo in public_repositories -%}
-            {%- if visible-repos contains repo.full_name or visible-repos contains repo.name -%}
-            {%- include github-repo-card.html repo=repo -%}
+        <div class="col-lg-8">
+          <main role="main" class="container">
+            <div class="project-content">
+              {{ content }}
+            </div>
+            {%- if site.categories[page.title] -%}
+            <div class="project-posts">
+              <h1> Related Posts</h1>
+              <div class="card-columns">
+              {%- for post in site.categories[page.title] -%}
+              {%- if forloop.index > 3 -%}
+              {%- break -%}
+              {%- endif -%}
+              {%- include post-card.html post=post -%}
+              {%- endfor -%}
+              </div>
+            </div>
             {%- endif -%}
-            {%- endfor -%}
-          </div>
+          </main>
         </div>
-        {%- endif -%}
-        {%- if site.categories[page.title] -%}
-        <div class="project-posts">
-          <h1> Related Posts</h1>
-          <div class="card-columns">
-          {%- for post in site.categories[page.title] -%}
-          {%- if forloop.index > 3 -%}
-          {%- break -%}
+        <div class="col-lg-2 container">
+          {%- assign visible-repos = page.repositories -%}
+          {%- for p in site.categories[page.title] -%}
+          {%- if p.repositories -%}
+          {%- assign visible-repos = visible-repos | concat: p.repositories -%}
           {%- endif -%}
-          {%- include post-card.html post=post -%}
           {%- endfor -%}
+          {%- assign visible-repos = visible-repos | uniq -%}
+          {%- if visible-repos -%}
+          <div class="project-repos">
+            <h1>Project Repositories</h1>
+              {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
+              {%- for repo in public_repositories -%}
+              {%- if visible-repos contains repo.full_name or visible-repos contains repo.name -%}
+              {%- include github-repo-card.html repo=repo -%}
+              {%- endif -%}
+              {%- endfor -%}
           </div>
+          {%- endif -%}
         </div>
-        {%- endif -%}
-      </main>
+      </div>
     </div>
     {%- include footer.html -%}
     {%- include scripts.html -%}
