@@ -39,6 +39,9 @@ collections:
   tags:
     output: true
     permalink: /blog/tags/:title
+  pages:
+    output: true
+    permalink: /:title
 
 defaults:
   - scope:
@@ -53,6 +56,10 @@ defaults:
       type: "tags"
     values:
       layout: "tag"
+  - scope:
+      type: "pages"
+    values:
+      layout: "page"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
