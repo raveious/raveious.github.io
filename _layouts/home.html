@@ -90,9 +90,16 @@
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
-              <div class="col-md-6 col-lg-4 mb-3 px-2">
+              <div class="col-md-6 col-lg-4 mb-3 px-2 {% if site.posts.size < 10 %}d-md-none d-lg-block{% endif %}">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
+              </div>
+              {%- endif -%}
+              {%- if site.posts.size >= 10 -%}
+              <div class="col-12 mb-3 px-2">
+                <div class="container text-center">
+                  <a href="{{ site.baseurl }}{% link blog/index.html %}" class="btn btn-primary">See All Posts</a></span>
+                </div>
               </div>
               {%- endif -%}
             </div>

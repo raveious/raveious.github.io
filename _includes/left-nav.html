@@ -14,9 +14,11 @@
       {%- endunless -%}
     {%- endfor -%}
   </div>
+  {%- if site.pages -%}
   <div class="other-pages">
     {%- for repo in site.pages -%}
     <a href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
     {%- endfor -%}
   </div>
+  {%- endif -%}
 </div>

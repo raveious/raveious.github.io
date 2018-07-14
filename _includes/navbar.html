@@ -1,5 +1,5 @@
 <nav class="d-lg-none navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/">Salty.Engineer</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ site.baseurl }}{% link blog/index.html %}">Blog</a>
@@ -20,6 +20,30 @@
           {%- endfor -%}
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="GHPagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GitHub Pages</a>
+        <div class="dropdown-menu" aria-labelledby="GHPagesDropdown">
+          {%- for repo in site.github.public_repositories -%}
+            {%- unless repo.name == site.github.repository_name or repo.archived or repo.fork -%}
+              {%- if repo.homepage and repo.homepage != "" -%}
+              <a class="dropdown-item" href="{{ repo.homepage }}" >{{ repo.name }}</a>
+              {%- elsif repo.has_pages -%}
+              <a class="dropdown-item" href="{{ repo.name | prepend:site.baseurl }}">{{ repo.name }}</a>
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        </div>
+      </li>
+      {%- if site.pages -%}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="PagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+        <div class="dropdown-menu" aria-labelledby="PagesDropdown">
+          {%- for repo in site.pages -%}
+          <a href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
+          {%- endfor -%}
+        </div>
+      </li>
+      {%- endif -%}
     </ul>
   </div>
 </nav>
