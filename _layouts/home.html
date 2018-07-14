@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {%- include head.html -%}
   <body>
-    {%- include header.html -%}
+    {%- include navbar.html -%}
 
     <header class="masthead">
     {%- assign post = site.posts | first -%}
@@ -76,7 +76,7 @@
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
-              <div class="col-md-6 col-lg-4 mb-3 px-2">
+              <div class="col-md-6 col-lg-4 mb-3 px-2 {% if site.posts.size < 9 %}d-md-none d-lg-block{% endif %}">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
