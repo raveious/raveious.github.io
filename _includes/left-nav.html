@@ -4,21 +4,26 @@
   </div>
   <div class="repo-pages">
     <h1>Related Links</h1>
+    <ul>
     {%- for repo in site.github.public_repositories -%}
       {%- unless repo.name == site.github.repository_name or repo.archived or repo.fork -%}
         {%- if repo.homepage and repo.homepage != "" -%}
-        <p><a href="{{ repo.homepage }}">{{ repo.name }}</a></p>
+        <li><a href="{{ repo.homepage }}">{{ repo.name }}</a></li>
         {%- elsif repo.has_pages -%}
-        <p><a href="{{ repo.name | prepend:site.baseurl }}">{{ repo.name }}</a></p>
+        <li><a href="{{ repo.name | prepend:site.baseurl }}">{{ repo.name }}</a></li>
         {%- endif -%}
       {%- endunless -%}
     {%- endfor -%}
+    </ul>
   </div>
   {%- if site.pages -%}
   <div class="other-pages">
-    {%- for repo in site.pages -%}
-    <a href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
-    {%- endfor -%}
+    <ul>
+      <li><a href="{{ site.baseurl }}{% link blog/index.html %}">Blog</a></li>
+      {%- for repo in site.pages -%}
+      <li><a href="{{ repo.url | relative_url }}">{{ repo.title }}</a></li>
+      {%- endfor -%}
+    </ul>
   </div>
   {%- endif -%}
 </div>
