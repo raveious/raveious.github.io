@@ -7,7 +7,7 @@
     <header class="masthead">
     {%- assign post = site.posts | first -%}
     {%- assign cover-images = page.cover-images -%}
-    {%- if page.cover-images -%}
+    {%- if post.cover-images -%}
     {%- assign cover-images = page.cover-images | concat: post.cover-images -%}
     {%- endif -%}
     {%- if cover-images -%}
