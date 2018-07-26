@@ -39,7 +39,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="PagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
         <div class="dropdown-menu" aria-labelledby="PagesDropdown">
           {%- for repo in site.pages -%}
-          <a href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
+          <a class="dropdown-item" href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
           {%- endfor -%}
         </div>
       </li>
