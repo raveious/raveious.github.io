@@ -1,8 +1,9 @@
 {% if include.repo %}
-<div class="card">
+<div class="card mb-2">
   <div class="card-body">
     <h4 class="card-title"><i class="fab fa-github" aria-hidden="true"></i> <a href="{{ include.repo.html_url }}" class="card-link">{{ include.repo.name }}</a>{% if include.repo.fork %} <i class="fa fa-code-fork" aria-hidden="true"></i>{% endif %}</h4>
     <h6 class="card-subtitle mb-2 text-muted">{{ include.repo.description }}</h6>
+    {% if include.stats %}
     <hr>
     <div class="row text-center mx-0">
       <div class="col-sm-4 order-sm-0">
@@ -24,7 +25,7 @@
         <span><i class="fas fa-code-branch" aria-hidden="true"></i> Forks</span>
       </div>
     </div>
-    <p class="card-text"><!--{{ include.repo.description }}--></p>
+    {% endif %}
     {% if include.repo.homepage and include.repo.homepage != "" %}
     <hr>
     <a href="{{ include.repo.homepage }}" class="card-link">Project Homepage</a>
