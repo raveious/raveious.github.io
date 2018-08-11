@@ -9,7 +9,7 @@
     {% assign visible-tags = "" %}
     {% for t in site.tags %}
     {% if include.post.tags contains t.title %}
-    {% capture temp %}<a href="{{ t.url }}"><span class="badge badge-pill badge-primary">{{ t.title }}</span></a> {% endcapture %}
+    {% capture temp %}<a href="{{ t.url }}"><span class="badge">{{ t.title }}</span></a> {% endcapture %}
     {% assign visible-tags = visible-tags | append: temp %}
     {% endif %}
     {% endfor %}
@@ -27,7 +27,7 @@
     {% else %}
     <p class="card-text">{{ include.post.excerpt | truncatewords: 40 }}</p>
     {% endif %}
-    <a href="{{ include.post.url }}" class="btn btn-primary float-right" role="button">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    <a href="{{ include.post.url }}" class="btn float-right" role="button">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   </div>
   <div class="card-footer text-muted">
     <i class="far fa-calendar-alt" aria-hidden="true"></i> Posted on {{ include.post.date | date_to_string }}{% if include.post.author %} by {{ include.post.author }}{% endif %}

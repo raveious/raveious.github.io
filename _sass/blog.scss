@@ -3,3 +3,14 @@
     height: 100%;
   }
 }
+
+.blog-post-tags {
+  i.fa {
+    color: $light-green;
+  }
+
+  .badge {
+    color: $dark-gray;
+    background-color: $light-green;
+  }
+}

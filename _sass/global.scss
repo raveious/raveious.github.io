@@ -11,6 +11,16 @@ body {
   overflow-x: hidden;
 }
 
+.card {
+  background-color: $dark-gray;
+  border-color: $light-green;
+  // border-radius: 0.125rem;
+
+  h1, h2, h3, h4, h5, h6, .card-title {
+    color: darken($light-green, 10%);
+  }
+}
+
 @media (min-width: 768px) {
   body {
     padding-bottom: 100px;
