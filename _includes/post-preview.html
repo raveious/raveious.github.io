@@ -4,7 +4,7 @@
   <a href="{{ include.post.url }}"><img class="card-img-top img-fluid" src="{{ include.post.cover-images[0] }}" alt="Spotlight image for {{ include.post.title }}" alt="featured image from post on {{ include.post.date | date_to_long_string }}"></a>
   {% endif %}
   <div class="card-body">
-    <a href="{{ include.post.url }}"><h2 class="card-title">{{ include.post.title }}</h2></a>
+    <h2 class="card-title"><a href="{{ include.post.url }}" class="card-link">{{ include.post.title }}</a></h2>
 
     {% assign visible-tags = "" %}
     {% for t in site.tags %}
