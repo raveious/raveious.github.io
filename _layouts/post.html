@@ -16,7 +16,7 @@
             <div class="post-content">
               {{ content }}
             </div>
-            {%- if page.repositories -%}
+            {%- if page.repositories and site.github.public_repositories -%}
             <div class="project-repos">
               <h1>Project Repositories</h1>
               <div class="card-columns">
