@@ -24,11 +24,12 @@ footer {
   }
 
   a {
-    // color: $triangle-yellow;
+    color: $light-gray;
     font-weight: normal;
-    text-decoration: none;
+    text-decoration: underline;
     &:hover {
-      // color: darken($triangle-yellow, 10%);
+      text-decoration-color: $bright-red;
+      color: darken($light-gray, 10%);
     }
   }
 }

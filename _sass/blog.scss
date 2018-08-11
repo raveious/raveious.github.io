@@ -14,3 +14,21 @@
     background-color: $light-green;
   }
 }
+
+.post-content {
+  h1 {
+    color: $light-green;
+  }
+
+  h2, h3, h4, h5, h6 {
+
+  }
+
+  a {
+    color: $light-gray;
+    text-decoration: underline;
+    &:hover {
+      text-decoration-color: $bright-red;
+    }
+  }
+}

@@ -16,7 +16,7 @@ body {
   border-color: $light-green;
   // border-radius: 0.125rem;
 
-  h1, h2, h3, h4, h5, h6, .card-title {
+  h1, h2, h3, h4, h5, h6, .card-title a {
     color: darken($light-green, 10%);
   }
 }

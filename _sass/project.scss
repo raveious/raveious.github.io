@@ -1,0 +1,10 @@
+
+.project-content {
+  a {
+    color: $light-gray;
+    text-decoration: underline;
+    &:hover {
+      text-decoration-color: $bright-red;
+    }
+  }
+}
