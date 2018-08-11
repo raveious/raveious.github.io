@@ -18,7 +18,7 @@
             </div>
             {%- if site.categories[page.title] -%}
             <div class="project-posts">
-              <h1> Related Posts</h1>
+              <h1>Related Posts</h1>
               <div class="card-columns">
               {%- for post in site.categories[page.title] -%}
               {%- if forloop.index > 3 -%}
@@ -39,7 +39,7 @@
           {%- endif -%}
           {%- endfor -%}
           {%- assign visible-repos = visible-repos | uniq -%}
-          {%- if visible-repos -%}
+          {%- if visible-repos != empty -%}
           <div class="project-repos">
             <h1>Project Repositories</h1>
               {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
