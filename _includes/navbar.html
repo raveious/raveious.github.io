@@ -28,7 +28,7 @@
               {%- if repo.homepage and repo.homepage != "" -%}
               <a class="dropdown-item" href="{{ repo.homepage }}" >{{ repo.name }}</a>
               {%- elsif repo.has_pages -%}
-              <a class="dropdown-item" href="{{ repo.name | prepend:site.baseurl }}">{{ repo.name }}</a>
+              <a class="dropdown-item" href="http://{{ site.github_username }}.github.io/{{ repo.name }}">{{ repo.name }}</a>
               {%- endif -%}
             {%- endunless -%}
           {%- endfor -%}

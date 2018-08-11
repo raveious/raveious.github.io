@@ -18,7 +18,7 @@
         {%- if repo.homepage and repo.homepage != "" -%}
         <li><a href="{{ repo.homepage }}">{{ repo.name }}</a></li>
         {%- elsif repo.has_pages -%}
-        <li><a href="{{ repo.name | prepend:site.baseurl }}">{{ repo.name }}</a></li>
+        <li><a href="http://{{ site.github_username }}.github.io/{{ repo.name }}">{{ repo.name }}</a></li>
         {%- endif -%}
       {%- endunless -%}
     {%- endfor -%}
