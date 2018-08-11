@@ -95,13 +95,11 @@
                 {%- assign post = post.previous -%}
               </div>
               {%- endif -%}
-              {%- if site.posts.size >= 10 -%}
-              <div class="col-12 mb-3 px-2">
+              <div class="col-12 my-3 px-2">
                 <div class="container text-center">
                   <a href="{{ site.baseurl }}{% link blog/index.html %}" class="btn btn-primary">See All Posts</a></span>
                 </div>
               </div>
-              {%- endif -%}
             </div>
           </main>
         </div>
