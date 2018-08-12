@@ -54,9 +54,12 @@
           <main role="main" class="container">
             {{ content }}
             <div class="row blog-post-front-page">
-              {%- if post -%}
+              {%- unless cover-images -%}
+              <div class="col-md-12 mb-3 px-2">
+                {%- include post-preview.html post=post -%}
+              </div>
+              {%- endunless -%}
               {%- assign post = post.previous -%}
-              {%- endif -%}
               {%- if site.posts.size >= 3 -%}
               <div class="col-md-6 mb-3 px-2">
                 {%- include post-preview.html post=post -%}
@@ -68,29 +71,29 @@
               </div>
               {%- endif -%}
               {%- if site.posts.size >= 6 -%}
-              <div class="col-lg-6 col-xl-4 mb-3 px-2">
+              <div class="col-md-6 col-xl-4 mb-3 px-2">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
-              <div class="col-lg-6 col-xl-4 mb-3 px-2">
+              <div class="col-md-6 col-xl-4 mb-3 px-2">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
-              <div class="col-lg-6 col-xl-4 mb-3 px-2 {% if site.posts.size < 9 %}d-lg-none d-xl-block{% endif %}">
+              <div class="col-md-6 col-xl-4 mb-3 px-2 {% if site.posts.size < 9 %}d-md-none d-xl-block{% endif %}">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
               {%- endif -%}
               {%- if site.posts.size >= 9 -%}
-              <div class="col-lg-6 col-xl-4 mb-3 px-2">
+              <div class="col-md-6 col-xl-4 mb-3 px-2">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
-              <div class="col-lg-6 col-xl-4 mb-3 px-2">
+              <div class="col-md-6 col-xl-4 mb-3 px-2">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
-              <div class="col-lg-6 col-xl-4 mb-3 px-2 {% if site.posts.size < 10 %}d-lg-none d-xl-block{% endif %}">
+              <div class="col-md-6 col-xl-4 mb-3 px-2 {% if site.posts.size < 10 %}d-md-none d-xl-block{% endif %}">
                 {%- include post-card.html post=post -%}
                 {%- assign post = post.previous -%}
               </div>
