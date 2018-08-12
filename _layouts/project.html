@@ -39,7 +39,7 @@
           {%- endif -%}
           {%- endfor -%}
           {%- assign visible-repos = visible-repos | uniq -%}
-          {%- if visible-repos != empty -%}
+          {%- if visible-repos != empty and site.github.public_repositories -%}
           <div class="project-repos">
             <h1>Project Repositories</h1>
               {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
