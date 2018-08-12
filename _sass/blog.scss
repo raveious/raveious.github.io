@@ -12,6 +12,45 @@
   .badge {
     color: $dark-gray;
     background-color: $light-green;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    &:hover {
+      background-color: darken($light-green, 10%);
+    }
+  }
+}
+
+.blog-main {
+  .blog-pagination {
+    .page-item {
+      a {
+        color: $light-gray;
+        background-color: $dark-gray;
+        border-color: $light-green;
+      }
+      &.active a {
+        color: $dark-gray;
+        background-color: $light-green;
+      }
+
+      &.disabled a {
+        color: $medium-gray;
+      }
+    }
+  }
+}
+
+.blog-sidebar {
+  a {
+    color: $light-gray;
+    text-decoration: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    &:hover {
+      color: $bright-red;
+    }
   }
 }
 
@@ -27,6 +66,9 @@
   a {
     color: $light-gray;
     text-decoration: underline;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
     &:hover {
       text-decoration-color: $bright-red;
     }
