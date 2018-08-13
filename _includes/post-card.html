@@ -1,5 +1,5 @@
 {% if include.post %}
-<div class="card mb-4 blog-post-preview">
+<div class="card mb-3 blog-post-preview">
   {% if include.post.cover-images %}
   <a href="{{ include.post.url }}"><img class="card-img-top img-fluid" src="{{ include.post.cover-images[0] }}" alt="Spotlight image for {{ include.post.title }}" alt="featured image from post on {{ include.post.date | date_to_long_string }}"></a>
   {% endif %}

@@ -31,7 +31,7 @@
             {%- endif -%}
           </main>
         </div>
-        <div class="col-lg-2 container">
+        <div class="col-lg-2">
           {%- assign visible-repos = page.repositories -%}
           {%- for p in site.categories[page.title] -%}
           {%- if p.repositories -%}
@@ -40,7 +40,7 @@
           {%- endfor -%}
           {%- assign visible-repos = visible-repos | uniq -%}
           {%- if visible-repos != empty and site.github.public_repositories -%}
-          <div class="project-repos">
+          <div class="project-repos container">
             <h1>Project Repositories</h1>
               {%- assign public_repositories = site.github.public_repositories | sort:"pushed_at" | reverse -%}
               {%- for repo in public_repositories -%}
