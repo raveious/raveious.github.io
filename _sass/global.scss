@@ -21,6 +21,8 @@ body {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
+    &:active,
+    &:focus,
     &:hover {
       color: darken($light-green, 10%);
     }

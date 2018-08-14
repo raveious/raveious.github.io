@@ -27,6 +27,8 @@ footer {
     color: $light-gray;
     font-weight: normal;
     text-decoration: underline;
+    &:active,
+    &:focus,
     &:hover {
       text-decoration-color: $bright-red;
       color: darken($light-gray, 10%);
