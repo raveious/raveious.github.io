@@ -11,6 +11,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 100px;
+  }
+}
+
 .card {
   background-color: $dark-gray;
   border-color: $light-green;
@@ -29,15 +35,23 @@ body {
   }
 }
 
-@media (min-width: 768px) {
-  body {
-    padding-bottom: 100px;
-  }
-}
 @media (min-width: 576px) {
   .card-columns {
     .card {
       display: inline-flex;
     }
+  }
+}
+
+.btn {
+  color: $dark-gray;
+  background-color: $light-green;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  &:active,
+  &:focus,
+  &:hover {
+    color: $bright-red;
   }
 }
