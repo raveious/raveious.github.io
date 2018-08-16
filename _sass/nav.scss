@@ -1,0 +1,14 @@
+#left-nav {
+    a {
+      color: $light-gray;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+      &:active,
+      &:focus,
+      &:hover {
+        color: $light-green;
+        text-decoration: none;
+      }
+    }
+}
