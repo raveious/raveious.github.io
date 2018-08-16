@@ -12,8 +12,13 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ site.baseurl }}{% link blog/index.html %}">Blog</a>
       </li>
+      {%- for repo in site.pages -%}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
+      </li>
+      {%- endfor -%}
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="ProjectsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+        <a class="nav-link dropdown-toggle" href="#" id="ProjectsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shakers</a>
         <div class="dropdown-menu" aria-labelledby="ProjectsDropdown">
           {%- for s in site.shakers -%}
           <a class="dropdown-item" href="{{ s.url | relative_url }}" >{{ s.title }}</a>
@@ -34,16 +39,6 @@
           {%- endfor -%}
         </div>
       </li>
-      {%- if site.pages -%}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="PagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-        <div class="dropdown-menu" aria-labelledby="PagesDropdown">
-          {%- for repo in site.pages -%}
-          <a class="dropdown-item" href="{{ repo.url | relative_url }}">{{ repo.title }}</a>
-          {%- endfor -%}
-        </div>
-      </li>
-      {%- endif -%}
     </ul>
   </div>
 </nav>
