@@ -6,7 +6,7 @@ layout: default
 {%- assign paginator = page.paginator -%}
 {%- endif -%}
 <div class="row">
-  <div class="col-sm-12 col-lg-9 blog-main">
+  <div class="col-sm-12 col-lg-9 blog-main px-0">
     {%- for post in paginator.posts -%}
     {%- include post-preview.html post=post -%}
     {%- endfor -%}
