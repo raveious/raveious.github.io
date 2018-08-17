@@ -21,13 +21,6 @@
     </div>
     {% endfor %}
     {% endif %}
-
-    {% if include.post.excerpt == include.post.content %}
-    <p class="card-text">{{ include.post.content | remove_first: include.post.excerpt | truncatewords: 40 }}</p>
-    {% else %}
-    <p class="card-text">{{ include.post.excerpt | truncatewords: 40 }}</p>
-    {% endif %}
-    <a href="{{ include.post.url }}" class="btn float-right" role="button">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   </div>
   <div class="card-footer text-muted">
     <i class="far fa-calendar-alt" aria-hidden="true"></i> Posted on {{ include.post.date | date_to_string }}{% if include.post.author %} by {{ include.post.author }}{% endif %}
