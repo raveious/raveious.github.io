@@ -2,10 +2,41 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="{{ site.github.owner_name }}">
 
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  {%- assign front-page = site.pages | where: 'name', 'index.md' | first -%}
+
+  <!-- facebook open graph tags -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}"/>
+  <meta property="og:url" content="{{ page.url | absolute_url }}"/>
+  <meta property="og:site_name" content="{{ site.title }}"/>
+  <meta property="og:image" content="{{ page.cover-images[0].image-link | default: page.cover-images[0] | default: front-page.cover-images[0].image-link }}"/>
+
+  <!-- twitter card tags additive with the og: tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+  <meta name="twitter:domain" content="{{ site.url }}"/>
+  <meta name="twitter:url" content="{{ page.url | absolute_url }}"/>
+  <meta name="twitter:image" content="{{ page.cover-images[0].image-link | default: page.cover-images[0] | default: front-page.cover-images[0].image-link }}"/>
+
+  {%- if page.title -%}
+  <title>{{ page.title | append: ' | ' | append: site.title }}</title>
+  <meta property="og:title" content="{{ page.title | append: ' | ' | append: site.title }}"/>
+  <meta name="twitter:title" content="{{ page.title | append: ' | ' | append: site.title }}"/>
+  {%- else -%}
+  <title>{{ site.title }}</title>
+  <meta property="og:title" content="{{ site.title }}"/>
+  <meta name="twitter:title" content="{{ site.title }}"/>
+  {%- endif -%}
+
+  <!-- Description metadata is something else... -->
+  {% if page.excerpt and page.excerpt != page.content %}
+  <meta property="og:description" content="{{ page.excerpt | strip_html | normalize_whitespace | escape }}"/>
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html | normalize_whitespace | escape }}"/>
+  {% else %}
+  <meta property="og:description" content="{{ site.description | strip_html | normalize_whitespace | escape }}"/>
+  <meta name="twitter:description" content="{{ site.description | strip_html | normalize_whitespace | escape }}"/>
+  {% endif %}
+
   {% feed_meta %}
 
   <!-- Bootstrap CSS -->
