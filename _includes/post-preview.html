@@ -9,7 +9,7 @@
     {% assign visible-tags = "" %}
     {% for t in site.tags %}
     {% if include.post.tags contains t.title %}
-    {% capture temp %}<a href="{{ t.url }}"><span class="badge">{{ t.title }}</span></a> {% endcapture %}
+    {% capture temp %}<a href="{{ t.url }}"><span class="badge">{% if t.font-awesome-icon %}<i class="{{ t.font-awesome-icon }}" aria-hidden="true"></i> {% endif %}{{ t.title }}</span></a> {% endcapture %}
     {% assign visible-tags = visible-tags | append: temp %}
     {% endif %}
     {% endfor %}
