@@ -20,7 +20,7 @@
             {%- if page.paginator -%}
             {%- assign paginator = page.paginator -%}
             {%- endif -%}
-            <div class="blog-main px-0">
+            <div class="blog-main px-2">
               {%- for post in paginator.posts -%}
               {%- include post-preview.html post=post -%}
               {%- endfor -%}
