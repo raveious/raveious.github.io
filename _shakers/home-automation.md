@@ -1,6 +1,6 @@
 ---
 repositories:
-  - weather-underground-rtps
+  - darksky-rtps
   - FastRTPS-Alpine-Image
   - home-automation-idl
 ---
