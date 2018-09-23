@@ -23,7 +23,7 @@ body {
   border-radius: 0rem;
   box-shadow: 0 4px 8px 0 rgba($light-green, 0.2), 0 6px 20px 0 rgba($light-green, 0.19);
 
-  h1, h2, h3, h4, h5, h6, .card-title a {
+  h1, h2, h3, h4, h5, h6, .card-title a, .card-link {
     color: $light-green;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;

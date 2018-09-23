@@ -34,6 +34,6 @@
     <a href="https://{{ include.repo.owner.login }}.github.io/{{ include.repo.name }}" class="card-link">Project Homepage</a>
     {% endif %}
   </div>
-  <div class="card-footer text-muted"><i class="far fa-calendar-alt" aria-hidden="true"></i> Updated on {{ include.repo.pushed_at | date_to_long_string }}</div>
+  <div class="card-footer text-muted"><i class="far fa-calendar-alt" aria-hidden="true"></i> Updated on {{ include.repo.pushed_at | date_to_string }}</div>
 </div>
 {% endif %}
